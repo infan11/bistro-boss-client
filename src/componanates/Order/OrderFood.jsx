@@ -20,8 +20,10 @@ const OrderFood = () => {
 
 
     const salad = menu.filter(item => item.category === "salad")
+    console.log(salad);
     const drinks = menu.filter(item => item.category === "drinks")
     const desserts = menu.filter(item => item.category === "desserts")
+    console.log(desserts);
     const soup = menu.filter(item => item.category === "soup")
     const pizza = menu.filter(item => item.category === "pizza")
 
@@ -38,11 +40,10 @@ const OrderFood = () => {
       <Tab>Drinks</Tab>
      
     </TabList>
-
+    <TabPanel><OederTab items={salad}></OederTab></TabPanel>
+    <TabPanel><OederTab items={pizza}></OederTab></TabPanel>
+   <TabPanel><OederTab items={soup}></OederTab></TabPanel> 
    <TabPanel><OederTab items={desserts}></OederTab></TabPanel>
-   <TabPanel><OederTab items={soup}></OederTab></TabPanel>
-   <TabPanel><OederTab items={salad}></OederTab></TabPanel>
-   <TabPanel><OederTab items={pizza}></OederTab></TabPanel>
    <TabPanel><OederTab items={drinks}></OederTab></TabPanel>
   
   

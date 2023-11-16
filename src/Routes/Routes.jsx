@@ -12,6 +12,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Layout/DashBoard/Dashboard";
 import Cart from "../componanates/Dasboard/Cart/Cart";
 import PrivateRoute from "./PrivateRoutes";
+import AllUsers from "../componanates/Dasboard/AllUsers/AllUsers";
 
  export  
  const router = createBrowserRouter([
@@ -51,7 +52,12 @@ import PrivateRoute from "./PrivateRoutes";
           {
             path:"cart",
             element: <Cart></Cart>
+          },
+          {
+            path: "users",
+            element: <AllUsers></AllUsers>
           }
+          
       ]
     }
   ]);
