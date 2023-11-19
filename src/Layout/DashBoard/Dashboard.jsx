@@ -1,6 +1,7 @@
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 
@@ -9,7 +10,7 @@ const Dashboard = () => {
     const [cart] = useCart();
   // TO DO : get isadmin value from the database
 
-  const [isAdmin] = useCart()
+  const [isAdmin] = useAdmin()
  
     return (
         <div className="flex   font-bold ">
