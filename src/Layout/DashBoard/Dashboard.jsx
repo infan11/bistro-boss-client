@@ -4,78 +4,76 @@ import useCart from "../../Hooks/useCart";
 import useAdmin from "../../Hooks/useAdmin";
 
 
-
-
 const Dashboard = () => {
     const [cart] = useCart();
-  // TO DO : get isadmin value from the database
 
-  const [isAdmin] = useAdmin()
- 
+    // TODO: get isAdmin value from the database
+    // const [isAdmin] = useAdmin();
+    const isAdmin = true;
+
     return (
-        <div className="flex   font-bold ">
+        <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-orange-400">
-                <ul className="menu p-4 text-white hover:text-white"> 
-                 {
-                    isAdmin ? <>
-                        <li>
-                        <NavLink to="/dashboard/adminHome">
-                            <FaHome></FaHome>
-                            Admin Home Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/additems">
-                            <FaUtensils></FaUtensils>
-                            Add Items</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/manageItems">
-                            <FaList></FaList>
-                            Manage Items</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/bookings">
-                            <FaBook></FaBook>
-                            Manage Bokings </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/users">
-                            <FaUsers></FaUsers>
-                            All Users</NavLink>
-                    </li>
-                    </>
-                    :
-                    <>
-                       <li>
-                        <NavLink to="/dashboard/userHome">
-                            <FaHome></FaHome>
-                            User Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/reservation">
-                            <FaCalendar></FaCalendar>
-                            Reservation</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/cart">
-                            <FaShoppingCart></FaShoppingCart>
-                            My Cart ({cart.length})</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/review">
-                            <FaAd></FaAd>
-                            Add a Review</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/bookings">
-                            <FaList></FaList>
-                            My Bookings</NavLink>
-                    </li>
-                    </>
-                 }
-
-                    {/* shared nav links  */}
+            <div className="w-64 min-h-screen text-white bg-orange-400">
+                <ul className="menu p-4">
+                    {
+                        isAdmin ? <>
+                            <li>
+                                <NavLink to="/dashboard/adminHome">
+                                    <FaHome></FaHome>
+                                    Admin Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addItems">
+                                    <FaUtensils></FaUtensils>
+                                    Add Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageItems">
+                                    <FaList></FaList>
+                                    Manage Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/bookings">
+                                    <FaBook></FaBook>
+                                    Manage Bookings</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/users">
+                                    <FaUsers></FaUsers>
+                                    All Users</NavLink>
+                            </li>
+                        </>
+                            :
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/userHome">
+                                        <FaHome></FaHome>
+                                        User Home</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/reservation">
+                                        <FaCalendar></FaCalendar>
+                                        Reservation</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/cart">
+                                        <FaShoppingCart></FaShoppingCart>
+                                        My Cart ({cart.length})</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/review">
+                                        <FaAd></FaAd>
+                                        Add a Review</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/bookings">
+                                        <FaList></FaList>
+                                        My Bookings</NavLink>
+                                </li>
+                            </>
+                    }
+                    {/* shared nav links */}
                     <div className="divider"></div>
                     <li>
                         <NavLink to="/">
@@ -83,7 +81,7 @@ const Dashboard = () => {
                             Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order">
+                        <NavLink to="/order/salad">
                             <FaSearch></FaSearch>
                             Menu</NavLink>
                     </li>

@@ -5,7 +5,7 @@ import NavBar from '../../componanates/Home/Shared/NavBar/NavBar';
 
 const Main = () => {
     const location = useLocation();
-    console.log(location)
+    
     const noHederFooter = location.pathname.includes("login") || 
     location.pathname.includes("signUp" )
 
