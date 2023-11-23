@@ -16,6 +16,12 @@ import AddItems from "../componanates/Dasboard/AddItems/AddItems";
 import AllUsers from "../componanates/Dasboard/AllUsers/AllUsers";
 import Main from "../Layout/Main/Main";
 import ManageItems from "../Layout/DashBoard/ManageItems/ManageItems";
+import UpdateItems from "../Layout/DashBoard/UpdateItem/UpdateItems";
+import Payment from "../Layout/DashBoard/Payment/Payment";
+import PaymentHistory from "../Layout/DashBoard/Payment/PaymentHistory";
+import AdminHome from "../Layout/DashBoard/AdminHome/AdminHome";
+import UserHome from "../Layout/DashBoard/UserHome/UserHome";
+
 
 
 export const router = createBrowserRouter([
@@ -32,7 +38,7 @@ export const router = createBrowserRouter([
         element: <Menu></Menu>
       },
       {
-        path: 'order/:category',
+        path: 'order',
         element: <OrderFood></OrderFood>
       },
       {
@@ -54,19 +60,41 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       // normal user routes
+        {
+         path : "userHome",
+         element: <UserHome></UserHome>
+        },
       {
         path: 'cart',
         element: <Cart></Cart>
       },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
+      {
+        path: 'paymentHistory',
+        element: <PaymentHistory></PaymentHistory>
+      },
+
 
       // admin only routes
+      {
+        path: "adminHome",
+        element : <AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
       {
         path: 'addItems',
         element: <AdminRoute><AddItems></AddItems></AdminRoute>
       },
       {
        path: "manageItems",
-       element: <ManageItems></ManageItems>
+       element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+      },
+      {
+       path: "updateItem/:id",
+       element: <UpdateItems></UpdateItems>,
+       loader: ({params}) => fetch(`https://bistro-boss-server-xi-two.vercel.app/menu/${params.id}`)
       },
       {
         path: 'users',

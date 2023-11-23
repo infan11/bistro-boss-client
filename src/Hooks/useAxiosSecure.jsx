@@ -1,26 +1,27 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
+
 export const axiosSecure = axios.create({
- baseURL: "http://localhost:5000"
+ baseURL: "https://bistro-boss-server-xi-two.vercel.app"
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
     const { logOut } = useAuth();
        // request interceptor to add authorization header for every secure call to teh api
-       axiosSecure.interceptors.request.use(function (config) {
+       axiosSecure.interceptors.request.use(  (config ) => {
         const token = localStorage.getItem('accesstoken')
         // console.log('request stopped by interceptors', token)
         config.headers.authorization = `Bearer ${token}`;
         return config;
-    }, function (error) {
+    },  (error) => {
         // Do something with request error
         return Promise.reject(error);
     });
 
 
     // intercepts 401 and 403 status
-    axiosSecure.interceptors.response.use(function (response) {
+    axiosSecure.interceptors.response.use( (response) => {
         return response;
     }, async (error) => { 
         const status = error.response.status;

@@ -43,7 +43,7 @@ const FoodCard = ({item}) => {
 
       })
 }
-      // fetch('http://localhost:5000/carts' , {
+      // fetch('https://bistro-boss-server-xi-two.vercel.app/carts' , {
       //   method:"POST",
       //   headers: {"content-type"  : "application/json" },
       //   body: JSON.stringify(cartItem)
@@ -77,7 +77,7 @@ const FoodCard = ({item}) => {
        <div className="card w-96   bg-base-100 shadow-xl">
   <figure className="pt-10 ">
     <img src={image} alt="" className=" w-[430px] h-[320px]" />
-    <p className="absolute right-0 mr-4 top-1 px-4 bg-black ">{price}</p>
+    <p className="absolute right-0 mr-4 top-1 px-4 bg-black ">${price}</p>
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title font-bold">{name}</h2>

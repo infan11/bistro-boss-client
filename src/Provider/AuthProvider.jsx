@@ -54,15 +54,17 @@ const updateUserProfile = (name, photo) => {
             .then(res => {
                 if(res.data.token){
                     localStorage.setItem("accesstoken" , res.data.token)
+                    setLoading(false)
                 }
                 else{
                     // todo : remove token (if token stored in the client local storeage , cahing , in memory)
                     localStorage.removeItem("access-token")
+                    setLoading(false)
                 }
             })
         }
         
-        setLoading(false)
+      
     })
     return() =>{
         return unSubscribe();
